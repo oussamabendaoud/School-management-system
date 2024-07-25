@@ -5,7 +5,7 @@ import ChooseUser from '/src/components/ChooseUser';
 import AdminSignIn from '/src/components/AdminSignIn';
 import StudentSignIn from '/src/components/StudentSignIn';
 import TeacherSignIn from '/src/components/TeacherSignIn';
-import AdminDashboard from '../src/pages/Admin/Dashboard';
+import AdminDashboard from './pages/Admin/Dashboard';
 import StudentDashboard from '../src/pages/Students/Dashboard';
 import TeacherDashboard from '../src/pages/Teachers/Dashboard';
 
@@ -26,11 +26,12 @@ function App() {
         <Route exact path="/student-signIn" element={<StudentSignIn />} />
         <Route exact path="/teacher-signIn" element={<TeacherSignIn />} />
 
-        {/* All the dashboard routes */}
-
-        <Route exact path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route exact path="/teacher/dashboard" element={<TeacherDashboard />} />        
+        
+        {/*All the Dashboard.routes*/}
+        <Route  path="/admin/dashboard" element={<AdminDashboard />} />
         <Route exact path="/student/dashboard" element={<StudentDashboard />} />
+        <Route exact path="/teacher/dashboard" element={<TeacherDashboard />} />        
+
       </Routes>
     </Router>
   );
