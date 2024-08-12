@@ -50,6 +50,7 @@ app.use("/api/v1/attendance", attendanceRouter);
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/register", adminRegisterRouter);
 
+
 dbConnection()
  
 export default app;
