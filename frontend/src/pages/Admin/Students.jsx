@@ -12,7 +12,7 @@ import {
   AddStudentForm,
   AddStudentInput,
   AddStudentButton,
-} from '../../styles/StudentsStyles'; 
+} from '../../styles/StudentsStyles';
 
 const Students = () => {
   const [newStudent, setNewStudent] = useState({ name: '', registrationNumber: '', grade: '' });

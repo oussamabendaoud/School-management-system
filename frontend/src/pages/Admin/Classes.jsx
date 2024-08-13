@@ -65,11 +65,11 @@ const Classes = () => {
           <AddClassForm onSubmit={handleAddClass}>
             <AddClassInput
               type="text"
-              placeholder="Enter class name"
+              placeholder="Entrer le nom de la classe."
               value={newClassName}
               onChange={(e) => setNewClassName(e.target.value)}
             />
-            <AddClassButton type="submit">Add Class</AddClassButton>
+            <AddClassButton type="submit">ajouter une classe</AddClassButton>
           </AddClassForm>
           <ClassList>
             {/* Ensure that classes is an array before mapping over it */}

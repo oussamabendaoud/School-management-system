@@ -1,9 +1,13 @@
-// TeachersStyles.js
 import styled from 'styled-components';
 
 export const TeachersContainer = styled.div`
   display: flex;
-  
+  padding-left: 240px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding-left: 0;
+  }
 `;
 
 export const Content = styled.div`
@@ -50,4 +54,22 @@ export const AddTeacherButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+`;
+
+export const TeacherContainer = styled.div`
+  display: flex;
+`;
+
+export const SidebarContainer = styled.div`
+  flex: 0 0 250px; /* Sidebar width */
+`;
+
+export const TeacherHeader = styled.h1`
+  font-size: 24px;
+  margin-bottom: 20px;
+`;
+
+export const GradeHeader = styled.h3`
+  font-size: 18px;
+  margin-bottom: 10px;
 `;
