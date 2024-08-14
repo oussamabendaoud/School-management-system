@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import Sidebar from './Sidebar';
 import { Bar } from 'react-chartjs-2'; 
+import { Chart as ChartJS, registerables } from 'chart.js';
 import {
   ExamContainer,
   SidebarContainer,
@@ -11,6 +12,8 @@ import {
   ExamResult,
   ExamChartContainer,
 } from '../../styles/ExamStyles'; 
+
+ChartJS.register(...registerables);
 
 const ExamSection = () => {
   const chartRef = useRef(null);
@@ -41,7 +44,6 @@ const ExamSection = () => {
   const chartOptions = {
     scales: {
       y: {
-        type: 'linear',
         beginAtZero: true,
         max: 100
       }
@@ -70,7 +72,7 @@ const ExamSection = () => {
             />
           </ExamChartContainer>
         </ExamResultsContainer>
-      </Content>
+      </Content>q
     </ExamContainer>
   );
 };

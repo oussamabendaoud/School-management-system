@@ -1,7 +1,7 @@
-// PerformanceSection.js
 import React from 'react';
 import Sidebar from './Sidebar';
-// import { Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2'; 
+import { Chart as ChartJS, registerables } from 'chart.js';
 import {
   PerformanceContainer,
   SidebarContainer,
@@ -10,7 +10,9 @@ import {
   PerformanceInfo,
   PerformanceGraphContainer,
   TotalMarks,
-} from '../../styles/PerformanceStyles'; // Import styled components from PerformanceSectionStyles.js
+} from '../../styles/PerformanceStyles'; 
+
+ChartJS.register(...registerables);
 
 const PerformanceSection = () => {
   // Sample performance data
@@ -48,11 +50,9 @@ const PerformanceSection = () => {
               data={lineChartData}
               options={{
                 scales: {
-                  yAxes: [{
-                    ticks: {
-                      beginAtZero: true
-                    }
-                  }]
+                  y: {
+                    beginAtZero: true,
+                  }
                 }
               }}
             />
