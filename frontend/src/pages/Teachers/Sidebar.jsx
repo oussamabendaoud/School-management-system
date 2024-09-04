@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import { BsGraphUp, BsPeople, BsPerson, BsFileText, BsBook, BsGraphDown, BsCalendar, BsGear, BsChatDots, BsCalendarEvent, BsQuestionSquare } from 'react-icons/bs';
+import { MdEventBusy } from 'react-icons/md';  // Import from react-icons/md
 
 const SidebarContainer = styled.div`
   position: fixed;
@@ -84,10 +85,10 @@ const Sidebar = () => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
-   
+
   return (
     <SidebarContainer style={{ width: isOpen ? '250px' : '80px' }}>
-        <SidebarHeader>
+      <SidebarHeader>
         <Logo src={"../assets/bg1.png"} alt="Logo" />
       </SidebarHeader>
       <SidebarHeader>Teacher</SidebarHeader>
@@ -125,6 +126,10 @@ const Sidebar = () => {
           <StyledLink to="/teacher/attendance">Attendance</StyledLink>
         </SidebarNavItem>
         <SidebarNavItem>
+          <SidebarIcon><MdEventBusy /></SidebarIcon>  {/* Corrected icon import */}
+          <StyledLink to="/teacher/absence">Absence</StyledLink>
+        </SidebarNavItem>
+        <SidebarNavItem>
           <SidebarIcon><BsChatDots /></SidebarIcon>
           <StyledLink to="/teacher/communication">Announcement</StyledLink>
         </SidebarNavItem>
@@ -136,7 +141,7 @@ const Sidebar = () => {
           <SidebarIcon><BsGear /></SidebarIcon>
           <StyledLink to="/teacher/settings">Settings & Profile</StyledLink>
         </SidebarNavItem>
-        
+
       </SidebarNav>
       <ToggleButton onClick={toggleSidebar}>
         <ToggleIcon isOpen={isOpen}>▲</ToggleIcon>

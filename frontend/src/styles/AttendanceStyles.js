@@ -71,3 +71,25 @@ export const AttendanceStatus = styled.span`
   margin-left: 10px;
   color: ${({ present }) => (present ? 'green' : 'red')};
 `;
+
+
+// Add these to your AttendanceStyles.js
+
+export const ResponseContainer = styled.div`
+  margin-top: 30px;
+`;
+
+export const ResponseLabel = styled.label`
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+`;
+
+export const ResponseInput = styled.input`
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+`;

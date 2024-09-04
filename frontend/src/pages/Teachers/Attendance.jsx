@@ -1,13 +1,13 @@
-// CheckAttendanceSection.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from './Sidebar';
 import { AttendanceContainer, Content, AttendanceContent, AttendanceHeader, AttendanceList, AttendanceItem, StudentName, 
-  CheckboxLabel, Divider, SubmitButton } from '../../styles/AttendanceStyles'; 
+  CheckboxLabel, Divider, SubmitButton, ResponseContainer, ResponseLabel, ResponseInput } from '../../styles/AttendanceStyles'; 
 
 const CheckAttendanceSection = () => {
   const [students, setStudents] = useState([]);
   const [attendanceData, setAttendanceData] = useState([]);
+  const [responseMessage, setResponseMessage] = useState('');
 
   useEffect(() => {
     fetchStudents();
@@ -53,6 +53,19 @@ const CheckAttendanceSection = () => {
     }
   };
 
+  const handleResponseSubmit = async () => {
+    try {
+      // Send response message to the admin
+      const response = await axios.post('http://localhost:4000/api/v1/attendance/response', { message: responseMessage });
+      console.log('Response submitted:', response.data);
+      alert('Response sent to admin successfully');
+      setResponseMessage(''); // Clear the input field after submission
+    } catch (error) {
+      console.error('Error submitting response:', error);
+      alert('Failed to send response to admin. Please try again later.');
+    }
+  };
+
   return (
     <AttendanceContainer>
       <Sidebar />
@@ -93,8 +106,20 @@ const CheckAttendanceSection = () => {
               </React.Fragment>
             ))}
           </AttendanceList>
-          <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>
+          <SubmitButton onClick={handleSubmit}>Submit Attendance</SubmitButton>
         </AttendanceContent>
+
+        {/* Response to Admin */}
+        <ResponseContainer>
+          <ResponseLabel>Send a Response to Admin:</ResponseLabel>
+          <ResponseInput
+            type="text"
+            value={responseMessage}
+            onChange={(e) => setResponseMessage(e.target.value)}
+            placeholder="Enter your message to admin"
+          />
+          <SubmitButton onClick={handleResponseSubmit}>Send Response</SubmitButton>
+        </ResponseContainer>
       </Content>
     </AttendanceContainer>
   );
